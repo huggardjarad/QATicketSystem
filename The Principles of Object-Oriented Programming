@@ -1,0 +1,88 @@
+The Principles of Object-Oriented Programming
+
+Encapsulation
+
+This principle implies that methods of a class should only be read by fields of that class, not any other class. For example a “parent class” that read “animal” would represent different types of animal, whereas a “child/sub class” that read “cat” would have and need it’s own individual methods and fields as they would not have the same characteristics as the “parent” animal class. 
+
+This allows for an organised project with clean class types, which enables the user to change the code more efficiently and fix bugs more effectively, as they are able to directly target specific methods. An important note is that you should try to only interact with fields by invoking the methods, as failure to do so can increase your chances of having a messy, unorganised project. 
+
+An important aspect of this principle is that class members can be made either public or private:
+
+Public members of class are visible anywhere and are fine to be accessed outside of a class. 
+Private members of class should only be accessed by the methods of the same class. 
+
+It would make sense to keep fields (eg. weight of cat) private so that the data could not be rearranged outside of the class. This is useful as this predetermined data would then remain the same and would be easily changeable if necessary or would be changeable from a function of a method. On the other hand, methods can be made either public or private depending on the requirements. For example, using the “cat” class again, it would be sensible to make a method that read “meow!” private as all cats meow, whereas methods that you would use to interact with the class from outside of the class you would make public. 
+
+
+
+
+
+
+
+
+
+Inheritance
+
+This principle implies that some data types from different classes may overlap. For example, any members made in the “Animal” parent class could go to a child class that read “Mammal” and members made in the “Mammal” class could go to the Mammal’s child class “cat”. This small diagram will explain this simply using character data:
+
+
+                        Members
+
+Animal           A       B       C 
+
+
+Mammal       D        E        A       B        C
+
+
+Cat                F        G        D       E        A        B         C 
+
+
+
+Obviously, in a real-world case this does not always apply, and so members would have to be specified directly. However, if you can identify constants in class members then using this principle can save a lot of time and minimises errors. 
+
+This principle essentially performs on the idea of “is a vs has a”. A mammal is an Animal and so should fall into that category, however the idea that it should inherit it’s classes may not be accurate. For example, Animal could contain Fish or Bird members, which lay eggs, whereas mammals do not and so a member that read “lays eggs” would not be inherited by the Mammal class as they do not perform that function. However, all animals eat and so that member would be inherited by every class. 
+
+Another example, a cat has a tail, but not all mammals have tails and so that member would have to be input into that class specifically. 
+
+Some programming softwares allow multiple inheritance. This is the ability that members would have that would allow them to inherit from multiple classes, however in terms of Java, it only allows single inheritance, and so can only inherit members from a single class. 
+
+
+
+
+
+
+
+Polymorphism 
+
+This principle works in conjunction with inheritance and is focused on overriding methods, so that methods remain specifically tailored to a certain class. 
+
+Utilising polymorphism in programming allows you to assign various objects from sub-classes to a reference variable. If the super-type class has been assigned to an array object, then you can also assign all of the sub-classes that are inheriting methods from the super-type class to the same array essentially grouping these sub-classes to their parent class/super-type class. 
+
+You can then use a polymorphic array to call methods from the sub-classes that you have just put into that array. If the methods you have created for these sub classes are specific to that sub class then you won’t have to re-write the specified methods for the sub-classes, you can just run the programme and it will use the previously specified methods that you made for that class earlier. Running the programme using a polymorphic array means that the child classes or sub-classes you have assigned to that array will perform their specified methods according the reference variable you have assigned them within the array. 
+
+For example, if I had the parent class “Animal” and sub-classes “Cat” and “Dog”, which were inheriting methods from the parent class, then I could assign the parent class “Animal” to an array that read “Kingdom” and then assign the sub-classes “Cat” and “Dog” to the same array with indexes (e.g. Kingdom [0] = new dog (); Kingdom [1] = new cat ();). 
+
+You would then create the polymorphic array that could read “for (Animal a: Kingdom) { a.sleep (); a.eat ();”, this would then mean that when the programme is ran and the value appears for the animal method “sleep” then the dog will sleep like a dog and the cat would sleep like a cat as these methods had already been created within these classes specifically, the polymorphic array allows you to group these classes and their methods together and you would not need to rewrite these methods to ensure they’re specified to a certain animal sub-class. 
+
+In simpler terms, all animals eat and sleep, but they do it in different ways. After these methods have been overridden, so they’re specifically tailored to the animal type, placing them within an array  allows them to be grouped together under the same super-type animal. With a polymorphic array that assigns values to these animals and it happens to be a cat, then it will eat or sleep like a cat. The function methods eat and sleep taking many forms. 
+
+
+
+
+
+
+
+
+Abstraction 
+
+This principle explores the necessities of the programme you are making, in terms of the user requirements. It is similar to encapsulation, however encapsulation works to protect data and reduce coding error, whereas abstraction works to simplify the UI for the user and hide all of the implementation details from the user. 
+
+This is so that when the user is actually interacting with a programme, it is not overcomplicated for them and they would only have to input a small and relevant amount of data for the programme to be functional. 
+
+Abstraction can be performed by identifying commonalities in code that are unnecessary and “remove” them to reduce the features of the code or design. 
+
+For example, using a simple database system, the user should only have to input a client name, telephone number and a customer code then have an add function to add that client to the database. 
+
+However, for accuracy you may want to add a validation check to ensure that all data has been input correctly when the user has been interacting with the UI. This validation check should not be a button icon that the user has to click to ensure all data has been correctly input, instead this validation check could be automatically performed when the user has clicked the “add” function icon, thus reducing and simplifying the process the user has to go through to accurately input data into the database. 
+
+By making the validate object private and then inputting the validate method data inside the add function itself, you can avoid the user having to perform these extra functions and they will automatically be performed when the user has clicked “add”.  
